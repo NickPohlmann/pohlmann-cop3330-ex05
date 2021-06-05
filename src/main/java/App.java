@@ -12,10 +12,10 @@ public class App {
     public static void main(String[] args) {
         App myApp = new App();
 
-        String firstNumString = myApp.readFirstNum();
-        String secondNumString = myApp.readSecondNum();
-        int firstNum = myApp.convertFirstNum(firstNumString);
-        int secondNum = myApp.convertSecondNum(secondNumString);
+        String firstNumString = myApp.readNum("first");
+        String secondNumString = myApp.readNum("second");
+        int firstNum = myApp.convertNumString(firstNumString);
+        int secondNum = myApp.convertNumString(secondNumString);
         int sum = myApp.computeSum(firstNum, secondNum);
         int difference = myApp.computeDifference(firstNum, secondNum);
         int product = myApp.computeProduct(firstNum, secondNum);
@@ -23,26 +23,15 @@ public class App {
         String outputString = myApp.generateOutputString(firstNum, secondNum, sum, difference, product, quotient);
         myApp.printOutput(outputString);
     }
-    private String readFirstNum() {
-        System.out.print("What is the first number? ");
-        String firstNum = in.nextLine();
-        return firstNum;
+    private String readNum(String orderNum) {
+        System.out.print("What is the " + orderNum + " number? ");
+        String num = in.nextLine();
+        return num;
     }
 
-    private String readSecondNum() {
-        System.out.print("What is the second number? ");
-        String secondNum = in.nextLine();
-        return secondNum;
-    }
-
-    private Integer convertFirstNum(String firstNumString) {
-        int firstNum = Integer.parseInt(firstNumString);
-        return firstNum;
-    }
-
-    private Integer convertSecondNum(String secondNumString) {
-        int secondNum = Integer.parseInt(secondNumString);
-        return secondNum;
+    private Integer convertNumString(String numString) {
+        int num = Integer.parseInt(numString);
+        return num;
     }
 
     private Integer computeSum(int firstNum, int secondNum) {
